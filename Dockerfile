@@ -22,6 +22,7 @@ RUN sed -i -- 's/\"disable_updater\": false/\"disable_updater\": true/g' /google
 
 
 RUN mkdir /.ssh
+ADD build-from-repo.sh /
 ENV PATH /google-cloud-sdk/bin:$PATH
 VOLUME ["/.config"]
-CMD ["/bin/bash"]
+CMD ["bash", "-xe", "/build-from-repo.sh"]
